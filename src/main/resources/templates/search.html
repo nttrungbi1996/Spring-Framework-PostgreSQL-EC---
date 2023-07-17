@@ -1,0 +1,28 @@
+<div class="d-flex flex-wrap justify-content-center py-4 mb-4 border-bottom text-bg-light">
+	<div class="A hover-zoomin" onclick="moForm();">
+		<div class="nut-mo-chatbox">
+			<img src="/image/chatbox.png" width="50px" height="50px">
+		</div>
+	</div>
+	<div class="chatbox" id="myForm">
+		<span class="icon-link-hover"> <img onclick="dongForm()" id="close"
+				class="close-btn position-absolute top-0 end-0 icon-link-hover"
+				src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png" width="25px"
+				height="25px">
+		</span>
+		<form action="" class="form-container">
+			<div class="title">
+				<h1 class="msg">Message</h1>
+			</div>
+			<!--画面-->
+			<div id="field">
+				<ul id="chat-ul"></ul>
+			</div>
+			<!--入力場所，送信ボタン-->
+			<div id="input-field">
+				<input type="text" placeholder="入力してください" id="chat-input">
+				<input type="button" value="Send" id="chat-button">
+			</div>
+		</form>
+	</div>
+</div>

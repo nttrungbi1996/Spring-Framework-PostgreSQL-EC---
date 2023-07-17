@@ -1,0 +1,73 @@
+<!--<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom text-bg-dark">-->
+<!--	<a href="/items" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">-->
+<!--		<svg class="bi me-2" width="40" height="32">-->
+<!--			<use xlink:href="#bootstrap" />-->
+<!--		</svg>-->
+<!--		<span class="fs-1 fw-bold text-info">Gグループショップ</span>-->
+<!--	</a>-->
+
+<!--	<ul class="nav nav-pills">-->
+<!--		<li class="nav-item"><a href="/items" class="nav-link active" aria-current="page">Home</a></li>-->
+<!--		<li class="nav-item"><a href="/cart" class="nav-link">Cart</a></li>-->
+<!--		<li class="nav-item"><a href="/items" class="nav-link">Category</a></li>-->
+<!--		<li class="nav-item"><a href="/items/show" class="nav-link">Product</a></li>-->
+<!--		<li class="nav-item"><a href="/customer" class="nav-link">Customer</a></li>-->
+<!--		<li class="nav-item">-->
+<!--			<form action="/logout">-->
+<!--				<button class="btn btn-warning my-2 my-sm-0" type="submit">Logout</button>-->
+<!--			</form>-->
+<!--		</li>-->
+<!--	</ul>-->
+<!--</header>-->
+<nav class="navbar navbar-expand-lg bg-dark sticky-top" data-bs-theme="dark">
+	<div class="container-fluid">
+		<a class="navbar-brand fs-1 fw-bold text-danger" href="/items">&#9404; ショップ</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link active text-light" aria-current="page" href="/items/show">Product</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-light" href="/cart">Cart</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
+						aria-expanded="false">
+						Category
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item fw-bold" th:each="category:${categoryList}"
+								th:text="${category.name}"
+								th:href="@{/items/item/{categoryId}(categoryId=${category.id})}"></a></li>
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+						<li><a class="dropdown-item fw-bold" href="/items/show">全商品</a></li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-light" href="/customer">Customer</a>
+				</li>
+				<th:bock th:if="${@account.getName() != null}">
+					<li class="nav-item">
+						<a class="nav-link text-warning" href="/logout">Logout</a>
+					</li>
+				</th:bock>
+				<th:bock th:if="${@account.getName() == null}">
+					<li class="nav-item">
+						<a class="nav-link text-warning" href="/login">Login</a>
+					</li>
+				</th:bock>
+			</ul>
+			<form action="/items/show" method="get" class="d-flex" role="search">
+				<input class="form-control me-2" type="text" name="keyword" placeholder="Search" aria-label="Search">
+				<input class="form-control me-2" type="text" name="maxPrice" placeholder="Price" aria-label="Price">
+				<button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+		</div>
+	</div>
+</nav>

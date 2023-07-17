@@ -1,0 +1,25 @@
+<div class="text-center w-50 mx-auto">
+	<h1>注文詳細</h1>
+	<div class="text-start">
+		<h4 th:text="'注文日付は'+${order.orderedOn}+'で'"></h4>
+	</div>
+	<table class="table table-dark table-hover custom-class">
+		<tr>
+			<th>商品ID</th>
+			<th>商品名</th>
+			<th>単価</th>
+			<th>個数</th>
+			<th>小計</th>
+		</tr>
+		<tr th:each="orderDetail:${orderDetails}">
+			<td th:text="${orderDetail.itemId}"></td>
+			<td th:text="${orderDetail.name}"></td>
+			<td th:text="${orderDetail.price}"></td>
+			<td th:text="${orderDetail.quantity}"></td>
+			<td th:text="'&yen;'+${orderDetail.price * orderDetail.quantity}"></td>
+		</tr>
+	</table>
+	<div class="text-end">
+		<h4 th:text="'合計額は'+${order.totalPrice}+'円'"></h4>
+	</div>
+</div>

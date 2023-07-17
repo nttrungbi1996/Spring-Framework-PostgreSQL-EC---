@@ -1,0 +1,21 @@
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom text-bg-dark sticky-top">
+	<a href="/admin/items" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+		<svg class="bi me-2" width="40" height="32">
+			<use xlink:href="#bootstrap" />
+		</svg>
+		<span class="fs-1 fw-bold text-info">Admin</span>
+	</a>
+
+	<ul class="nav nav-pills">
+		<li class="nav-item"><a href="/admin/items" class="nav-link active" aria-current="page">Home</a></li>
+		<li class="nav-item"><a href="/admin/items" class="nav-link">商品</a></li>
+		<li class="nav-item"><a href="/admin/categories" class="nav-link">カテゴリー</a></li>
+		<li class="nav-item"><a href="/admin/customers" class="nav-link">顧客情報</a></li>
+		<li class="nav-item"><a href="/admin/enquiries" class="nav-link">問い合わせ</a></li>
+		<li class="nav-item">
+			<form action="/admin/logout">
+				<button class="btn btn-warning my-2 my-sm-0" type="submit">Logout</button>
+			</form>
+		</li>
+	</ul>
+</header>

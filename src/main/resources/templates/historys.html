@@ -1,0 +1,25 @@
+<div class="text-center w-50 mx-auto">
+	<h1>注文履歴</h1>
+	<span th:text="${msg}"></span>
+	<th:bock th:if="${orderList}">
+		<table class="table table-light table-hover custom-class">
+			<tr>
+				<th>注文ID</th>
+				<th>注文日</th>
+				<th>合計金額</th>
+				<th></th>
+			</tr>
+			<tr th:each="order:${orderList}">
+				<td th:text="${order.id}"></td>
+				<td th:text="${order.orderedOn}"></td>
+				<td th:text="'&yen;'+${order.totalPrice}"></td>
+				<td>
+					<form action="/customer/history/detail" method="get">
+						<input type="hidden" name="orderId" th:value="${order.id}">
+						<button class="btn btn-info">注文詳細</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+	</th:bock>
+</div>
